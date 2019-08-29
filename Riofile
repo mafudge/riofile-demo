@@ -1,6 +1,18 @@
+configs:
+  conf:
+    index.html: |-
+      <!DOCTYPE html>
+      <html>
+      <body>
+      
+      <h1>Hello World 2</h1>
+      
+      </body>
+      </html>
 services:
-  demo:
-   image: ibuildthecloud/demo:v1
-   scale: 2
-   ports:
-   - 80/http
+  nginx:
+    image: nginx
+    ports:
+    - 80/http
+    configs:
+    - conf/index.html:/usr/share/nginx/html/index.html
